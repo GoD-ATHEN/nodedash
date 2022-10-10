@@ -1,0 +1,27 @@
+{
+  "name": "anoe",
+  "version": "1.0.0",
+  "description": "This application will solve your student and teacher managment problems.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoD-ATHEN/ANOE.git"
+  },
+  "author": "Athen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GoD-ATHEN/ANOE/issues"
+  },
+  "homepage": "https://github.com/GoD-ATHEN/ANOE#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20",
+    "path": "^0.12.7"
+  }
+}
