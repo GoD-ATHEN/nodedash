@@ -19,7 +19,7 @@ var con = mysql.createConnection({
     database: "anoe"
    });
 
-app.get("/", (req, res)=>{
+app.get("/dashboard", (req, res)=>{
     res.render("dashboard");
 });
 
@@ -30,21 +30,30 @@ app.get("/login", (req, res)=>{
 //==============================
 app.get("/loginn", (req, res)=>{
 
-    let query = `SELECT * FROM users WHERE email = "${req.query.email}" AND pass = "${req.query.pass}"`;
+    let query = `SELECT * FROM users`;
     
     con.query(query, (err, result) => {
-      if(err) throw err, window.location.replace("http://phenomit.com");
+      if(err) throw err;
 
-        if (result[0].email === `${req.query.email}` && result[0].pass === `${req.query.pass}`){
-          var status = 1;
+      var datalen = (result.length);
+      let counter = 0;
+      while (counter !== datalen) {
+
+        let results = result[counter].email.includes(`${req.query.email}`);
+        let resultss = result[counter].pass.includes(`${req.query.pass}`);
+        
+        if(resultss && results === true){
+          res.redirect('dashboard')
+        }else {
+          res.render('error');
         }
-        else{
-          status = 0;
-        }
+
+      counter = counter + 1;
+
+      }
 
     });
 
-    res.render("dashboard");
 });
 //========== Login END ==========
 
